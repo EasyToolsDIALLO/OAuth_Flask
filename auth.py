@@ -16,7 +16,7 @@ def home():
     return "Hello World {}".format(os.environ.get("DBUSER"))
 
 
-@app.route("/register", methods=["POST", "DELETE"])
+@app.route("/register", methods=["POST", "DELETE", "GET"])
 def client():
     if request.method == 'POST':
 
@@ -42,9 +42,11 @@ def client():
 
         return {'New User Created': createResponse}
 
-    if request.method == 'DELETE':
+    elif request.method == 'DELETE':
         # not yet implemented
         return {'New User Deleted': False}
+    else:
+        return render_template("register.html", name="register")
 
 
 @app.route("/auth", methods=["POST"])
@@ -71,4 +73,4 @@ def auth():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, host="0.0.0.0")
+    app.run(debug=True)
