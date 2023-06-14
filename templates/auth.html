@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%block title%}First Page{% endblock %}
+
+{%block content%} 
+
+<div class="content">
+    <h1>Authentication</h1>
+
+    <form action="/auth" method="POST">
+        <label>Identifiant: </label>
+        <input type="text" name="client_id" id="client_id">
+        <label>Password: </label>
+        <input type="text" name="client_secret" id="client_secret">
+    
+        <input type="submit" value="Add Task">
+    </form>
+
+</div>
+
+{% endblock %}
