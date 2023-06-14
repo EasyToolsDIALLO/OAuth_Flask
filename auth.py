@@ -70,5 +70,5 @@ def auth():
         pass
 
 
-# if __name__ == '__main__':
-#    app.run(debug=F)
+if __name__ == '__main__':
+    app.run(debug=False)

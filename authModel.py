@@ -15,6 +15,7 @@ datas = load_dotenv()
 def create(clientId, clientSecret, isAdmin):
 
     conn = None
+    print("{},{},{}".format(clientId, clientSecret, isAdmin))
     try:
         # conn = None
         query = "insert into clients (\"ClientId\", \"ClientSecret\", \"IsAdmin\") values(%s,%s,%s)"
@@ -29,8 +30,7 @@ def create(clientId, clientSecret, isAdmin):
         cur = conn.cursor()
         cur.execute(query, (clientId, clientSecret, isAdmin))
         conn.commit()
-        print("{},{},{}".format(os.environ.get("DBUSER"),
-              os.environ.get("DBNAME"), os.environ.get("DBPASSWORD")))
+        print("{},{},{}".format(clientId, clientSecret, isAdmin))
         print("CONNECTED")
         return True
     except (Exception, psycopg2.DatabaseError) as error:
@@ -39,8 +39,8 @@ def create(clientId, clientSecret, isAdmin):
             cur.close()
             conn.close()
         print("GET A PROBLEM")
-        print("{},{},{}".format(os.environ.get("DBUSER"),
-              os.environ.get("DBNAME"), os.environ.get("DBPASSWORD")))
+        print("{},{}".format(clientId,
+              clientId, clientId))
         return False
     finally:
         if conn is not None:
