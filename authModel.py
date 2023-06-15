@@ -22,7 +22,7 @@ def create(clientId, clientSecret, isAdmin):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt")
         cur = conn.cursor()
         cur.execute(query, (clientId, clientSecret, isAdmin))
         conn.commit()
@@ -45,67 +45,6 @@ def create(clientId, clientSecret, isAdmin):
             print("CONNECTION CLOSED")
 
 
-def delete_one(clientId):
-    conn = None
-    try:
-        # conn = None
-        query = "select * from clients where \"ClientId\"='{}'".format(
-            clientId)
-        """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
-                                " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
-        conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
-        cur = conn.cursor()
-        cur.execute(query)
-        conn.commit()
-        print("CONNECTED")
-        return True
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-        if conn is not None:
-            cur.close()
-            conn.close()
-        print("GET A PROBLEM")
-        return False
-    finally:
-        if conn is not None:
-            cur.close()
-            conn.close()
-            print("CONNECTION CLOSED")
-
-
-def delete_all():
-    conn = None
-    try:
-        # conn = None
-        query = "select * from clients where"
-        """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
-                                " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
-        conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
-        cur = conn.cursor()
-        cur.execute(query)
-        conn.commit()
-        print("CONNECTED")
-        return True
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-        if conn is not None:
-            cur.close()
-            conn.close()
-        print("GET A PROBLEM")
-        return False
-    finally:
-        if conn is not None:
-            cur.close()
-            conn.close()
-            print("CONNECTION CLOSED")
-
-
-def update(clientId, clientSecret):
-    pass
-
-
 def authenticate(clientId, clientSecret):
 
     conn = None
@@ -114,7 +53,7 @@ def authenticate(clientId, clientSecret):
 
     try:
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt")
         cur = conn.cursor()
         cur.execute(query)
         rows = cur.fetchone()
@@ -149,17 +88,3 @@ def authenticate(clientId, clientSecret):
             conn.close()
 
 
-""" if cur.rowcount == 1:
-            for row in rows:
-                isAdmin = row[3]
-                payload = authPayload(row[0], row[1], isAdmin)
-                break
-
-            encoded_jwt = jwt.encode(
-                payload.__dict__, os.environ.get("AUTHSECRET"), algorithm='HS256')
-            response = authResponse(
-                encoded_jwt, os.environ.get("EXPIRESSECONDS"), isAdmin)
-
-            return response.__dict__
-        else:
-            return False"""
