@@ -1,0 +1,14 @@
+{
+    "builds":[
+        {
+            "src":"auth.py",
+            "use" : "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src":"/(.*)",
+            "dest": "auth.py"
+        }
+    ]
+    }

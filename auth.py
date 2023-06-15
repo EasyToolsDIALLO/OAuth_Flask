@@ -3,11 +3,13 @@ import json
 import hashlib
 import os
 import authModel
+from flask_cors import CORS
 
 from dotenv import load_dotenv
 datas = load_dotenv()
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 
 
 @app.route("/")
