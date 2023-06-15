@@ -11,4 +11,4 @@ psycopg2==2.9.6
 PyJWT==2.7.0
 python-dotenv==0.21.1
 six==1.16.0
-Werkzeug==2.3.6
+Werkzeug==2.2.3
