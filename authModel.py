@@ -22,11 +22,7 @@ def create(clientId, clientSecret, isAdmin):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            user=""+os.environ.get("DBUSER"),
-            password=""+os.environ.get("DBPASSWORD"),
-            host=""+os.environ.get("HOST"),
-            port=""+os.environ.get("PORT"),
-            database=""+os.environ.get("DBNAME"))
+            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
         cur = conn.cursor()
         cur.execute(query, (clientId, clientSecret, isAdmin))
         conn.commit()
@@ -58,11 +54,7 @@ def delete_one(clientId):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            user=""+os.environ.get("DBUSER"),
-            password=""+os.environ.get("DBPASSWORD"),
-            host=""+os.environ.get("HOST"),
-            port=""+os.environ.get("PORT"),
-            database=""+os.environ.get("DBNAME"))
+            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
         cur = conn.cursor()
         cur.execute(query)
         conn.commit()
@@ -90,11 +82,7 @@ def delete_all():
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            user=""+os.environ.get("DBUSER"),
-            password=""+os.environ.get("DBPASSWORD"),
-            host=""+os.environ.get("HOST"),
-            port=""+os.environ.get("PORT"),
-            database=""+os.environ.get("DBNAME"))
+            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
         cur = conn.cursor()
         cur.execute(query)
         conn.commit()
@@ -126,11 +114,7 @@ def authenticate(clientId, clientSecret):
 
     try:
         conn = psycopg2.connect(
-            user=""+os.environ.get("DBUSER"),
-            password=""+os.environ.get("DBPASSWORD"),
-            host=""+os.environ.get("HOST"),
-            port=""+os.environ.get("PORT"),
-            database=""+os.environ.get("DBNAME"))
+            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
         cur = conn.cursor()
         cur.execute(query)
         rows = cur.fetchone()
