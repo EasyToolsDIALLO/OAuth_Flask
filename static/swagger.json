@@ -111,38 +111,8 @@
                         }
                 }
                 
-                },
-                "parameters": [
-                    {
-                        "name": "client_id",
-                        "in": "path",
-                        "description": "todo id to update",
-                        "required": true,
-                        "schema":{
-                            "type": "string"
-                        } 
-                    },
-                        
-                    {
-                        "name": "client_secret",
-                        "in": "path",
-                        "description": "todo id to update",
-                        "required": true,
-                        "schema":{
-                            "type": "string"
-                        }   
-                    },
-                    {
-                        "name": "is_admin",
-                        "in": "path",
-                        "description": "todo id to update",
-                        "required": false,
-                        "schema":{
-                            "type": "boolean"
-                        }
-                        
-                    }
-                ]
+                }
+                
               }
           },
           "/auth":{

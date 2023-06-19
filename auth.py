@@ -39,19 +39,16 @@ def client():
 
         # get the client_id and secret from the client application
         client_id = request.form.get(
-            "client_id")
+            "client_id", request.json["client_id"])
         client_secret_input = request.form.get(
-            "client_secret")
+            "client_secret", request.json["client_secret"])
         is_admin = request.form.get(
-            "is_admin")
+            "is_admin", request.json["is_admin"])
+
         if is_admin:
             is_admin = True
         else:
             is_admin = False
-
-        if client_id == None or client_secret_input == None:
-            client_secret_input = "TEST2023"
-            client_id = "TEST3"
 
         # the client secret in the database is "hashed" with a one-way hash
         hash_object = hashlib.sha1(
