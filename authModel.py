@@ -22,7 +22,7 @@ def create(clientId, clientSecret, isAdmin):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
         cur = conn.cursor()
         cur.execute(query, (clientId, clientSecret, isAdmin))
         conn.commit()
@@ -54,7 +54,7 @@ def delete_one(clientId):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
         cur = conn.cursor()
         cur.execute(query)
         conn.commit()
@@ -82,7 +82,7 @@ def delete_all():
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
         cur = conn.cursor()
         cur.execute(query)
         conn.commit()
@@ -114,7 +114,7 @@ def authenticate(clientId, clientSecret):
 
     try:
         conn = psycopg2.connect(
-            postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt)
+            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
         cur = conn.cursor()
         cur.execute(query)
         rows = cur.fetchone()
@@ -132,7 +132,7 @@ def authenticate(clientId, clientSecret):
         
         response = authResponse(
             encoded_jwt, os.environ.get("EXPIRESSECONDS"), isAdmin)'''
-        print("SUCCESS AUTHENTICATION, Data: ", response.__dict__)
+        # print("SUCCESS AUTHENTICATION, Data: ", response.__dict__)
         # return payload.__dict__
         return response.__dict__
 
