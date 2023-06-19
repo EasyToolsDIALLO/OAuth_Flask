@@ -22,11 +22,7 @@ def create(clientId, clientSecret, isAdmin):
         """conn = psycopg2.connect("dbname=data_jwt" + os.environ.get("DBNAME") +
                                 " user=" + os.environ.get("DBUSER") + " password=" + os.environ.get("DBPASSWORD"))"""""
         conn = psycopg2.connect(
-<<<<<<< HEAD
             "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
-=======
-            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt")
->>>>>>> 08c35aa6765303c695e2b4fd60b31e10c9513e2d
         cur = conn.cursor()
         cur.execute(query, (clientId, clientSecret, isAdmin))
         conn.commit()
@@ -49,7 +45,6 @@ def create(clientId, clientSecret, isAdmin):
             print("CONNECTION CLOSED")
 
 
-<<<<<<< HEAD
 def delete_one(clientId):
     conn = None
     try:
@@ -111,8 +106,6 @@ def update(clientId, clientSecret):
     pass
 
 
-=======
->>>>>>> 08c35aa6765303c695e2b4fd60b31e10c9513e2d
 def authenticate(clientId, clientSecret):
 
     conn = None
@@ -121,11 +114,9 @@ def authenticate(clientId, clientSecret):
 
     try:
         conn = psycopg2.connect(
-<<<<<<< HEAD
+
             "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a.oregon-postgres.render.com/data_jwt")
-=======
-            "postgresql://ousmane:bHvnpmqJmhXb9nhEeXa8l5fGewde83iJ@dpg-ci4q6jh8g3ne0dmma9hg-a/data_jwt")
->>>>>>> 08c35aa6765303c695e2b4fd60b31e10c9513e2d
+
         cur = conn.cursor()
         cur.execute(query)
         rows = cur.fetchone()
@@ -158,5 +149,3 @@ def authenticate(clientId, clientSecret):
         if conn is not None:
             cur.close()
             conn.close()
-
-
